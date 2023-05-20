@@ -10,9 +10,9 @@ import Footer from '../components/Footer';
 
 function Home() {
    return (
-      <div className='text-dark'>
+      <div className='text-dark d-flex flex-column'>
 
-      <Container className='mw-100 p-0' >
+      <Container className='mw-100 p-0 order-1' >
          <Navbar2 />
       </Container>
       

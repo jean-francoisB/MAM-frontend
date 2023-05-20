@@ -79,8 +79,8 @@ useEffect(() => {
         // </div>
 
   return (
-    <div className='d-md-flex  '>
-      <Nav defaultActiveKey="/home" className="flex-column w-100 w-md-30" >
+    <div className='aside d-flex flex-column flex-md-row order-2'>
+      <Nav defaultActiveKey="/home" className="flex-column w-100 w-md-30 order-2 order-md-2" >
 
         <Card style={{ width: '18rem' }}>
           <Card.Body>
@@ -129,11 +129,11 @@ useEffect(() => {
 
       </Nav>
       {/* Penser a mettre de la marge */}
-      <div className='col-md-10' style={{ backgroundColor: bodyStyles.backgroundColor }}>
+      <div className='col-md-10 order-1 order-md-3' style={{ backgroundColor: bodyStyles.backgroundColor }}>
         {texteData.filter((item) => item.isActive).map((item) => (
           <div key={item.id}>
             {/* <div dangerouslySetInnerHTML={{__html: item.texte}} /> */}
-            <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(item.texte)}} />
+            <div className='p-15' dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(item.texte)}} />
 
               {item.signature}
           </div>

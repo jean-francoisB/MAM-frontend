@@ -45,7 +45,7 @@ function Slider() {
 
 
   return (
-    <Carousel fade interval={null}>
+    <Carousel fade interval={null} className="slider order-3 order-md-2 order-md-1">
 {
     carouselData.map((carousel) => (
     <Carousel.Item key={carousel.id} className='d-md-flex align-items-center w-100' >
