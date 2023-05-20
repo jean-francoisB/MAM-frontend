@@ -1,0 +1,24 @@
+
+
+
+
+/* LISTES COULEURS
+Footer : #DCED91
+Aside : #FFF69A
+Navbar : #F0C3B9
+Button : #DCECD4
+Body : #FCE8FF */
+
+.body {
+  text-align: center;
+ 
+}
+
+.flex{
+  display:flex;
+  color :black;
+}
+
+
+
+
