@@ -42,41 +42,41 @@ function Aside() {
 
   useEffect(() => {
     fetch("https://127.0.0.1:8000/api/liens_utiles/")
-    .then((response) => response.json())
-    .then((data) => setLiensData(data["hydra:member"]))
-    .catch((error) => {
+      .then((response) => response.json())
+      .then((data) => setLiensData(data["hydra:member"]))
+      .catch((error) => {
         console.log(error);
-    });
-}, []);
+      });
+  }, []);
 
-useEffect(() => {
-  fetch("https://127.0.0.1:8000/api/informations/")
-  .then((response) => response.json())
-  .then((data) => setInfoData(data["hydra:member"]))
-  .catch((error) => {
-      console.log(error);
-  });
-}, []);
+  useEffect(() => {
+    fetch("https://127.0.0.1:8000/api/informations/")
+      .then((response) => response.json())
+      .then((data) => setInfoData(data["hydra:member"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-useEffect(() => {
-  fetch("https://127.0.0.1:8000/api/homes/")
-  .then((response) => response.json())
-  .then((data) => setTexteData(data["hydra:member"]))
-  .catch((error) => {
-      console.log(error);
-  });
-}, []);
+  useEffect(() => {
+    fetch("https://127.0.0.1:8000/api/homes/")
+      .then((response) => response.json())
+      .then((data) => setTexteData(data["hydra:member"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
 
-        // <div>
-        // {liensData.map((LiensUtiles) => (
-        //     <div key={LiensUtiles.id}>
-        //    
-        //         <h2>{LiensUtiles.nom}</h2>
-        //         <p>{LiensUtiles.url}</p>
-        //     </div>
-        // ))}
-        // </div>
+  // <div>
+  // {liensData.map((LiensUtiles) => (
+  //     <div key={LiensUtiles.id}>
+  //    
+  //         <h2>{LiensUtiles.nom}</h2>
+  //         <p>{LiensUtiles.url}</p>
+  //     </div>
+  // ))}
+  // </div>
 
   return (
     <div className='aside d-flex flex-column flex-md-row order-2'>
@@ -86,21 +86,21 @@ useEffect(() => {
           <Card.Body>
             <Card.Title>Informations</Card.Title>
             {infoData.filter((info) => info.isActive).map((info) => (
-            <div key={info.id}>
-            {info.texte}
-            </div>))}
+              <div key={info.id}>
+                {info.texte}
+              </div>))}
           </Card.Body>
         </Card>
 
         <Card className='d-md-flex' style={{ width: '18rem', backgroundColor: styles.backgroundColor }}>
-        <Card.Body>
+          <Card.Body>
             <Card.Title>Liens utiles</Card.Title>
             {liensData.map((LiensUtiles) => (
-            <Card.Link key={LiensUtiles.id} href={LiensUtiles.url} >
-            {LiensUtiles.nom}
-            </Card.Link>))
-}
-            
+              <Card.Link key={LiensUtiles.id} href={LiensUtiles.url} >
+                {LiensUtiles.nom}
+              </Card.Link>))
+            }
+
           </Card.Body>
         </Card>
         {/* <Nav className='w-100 d-md-w30'>Liens utiles</Nav>
@@ -111,9 +111,9 @@ useEffect(() => {
         <Card style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title>Météo du jour</Card.Title>
-          
-              <Meteo/>
-            
+
+            <Meteo />
+
           </Card.Body>
         </Card>
 
@@ -133,15 +133,17 @@ useEffect(() => {
         {texteData.filter((item) => item.isActive).map((item) => (
           <div key={item.id}>
             {/* <div dangerouslySetInnerHTML={{__html: item.texte}} /> */}
-            <div className='p-15' dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(item.texte)}} />
+            <div className='p-15 m-4 col-10' style={{textAlign:'justify'}} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.texte) }} />
 
+            <div className='m-4'>
               {item.signature}
+            </div>
           </div>
-        
-      ))}
-    
+
+        ))}
+
       </div>
-    
+
     </div>
   );
 }

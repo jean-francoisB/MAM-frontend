@@ -34,7 +34,7 @@ function Navbar2() {
                         <Nav.Link href="/modalites/">Nos modalités d'accueil</Nav.Link>
                         <Nav.Link href="/contact/">Contact</Nav.Link>
                         <Nav.Link href="https://www.facebook.com/groups/302636787251962"><img src="/Logo-Facebook.png" alt='LogoFacebook' width="30" height="30"></img></Nav.Link>
-                        <Nav.Link href="/login/">Connexion/inscription</Nav.Link>
+                        <Nav.Link href="/login/">Connexion</Nav.Link>
                 </Navbar.Collapse>            
         </Navbar>
     );
