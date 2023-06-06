@@ -53,7 +53,7 @@ function Pedagogie() {
         <Container className='mw-100 p-0' >
       <Navbar2 />
       </Container>
-      <div className=' d-md-flex w-100 justify-content-around'>
+      <div className=' d-md-flex w-100 justify-content-around mt-4'>
 
         {categories.map((item) => (
           <a href={`#${item.id}`} style={buttonStyles} type="button" class="btn btn-default btn-lg">{item.label}</a>
@@ -63,7 +63,7 @@ function Pedagogie() {
       </div>
       {categories.map((item) => (
 
-        <div id={item.id} style={{ height: "300px" }}>
+        <div className="ms-4 mt-3" id={item.id} style={{ height: "300px" }}>
           
           <h2>{item.label}</h2>
           <p>Vous êtes dans la catégorie {item.id}</p>

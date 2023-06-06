@@ -1,16 +1,18 @@
-import React from 'react';
-import Form  from 'react-bootstrap/Form';
+import React,{useRef} from 'react';
+import Form from 'react-bootstrap/Form';
 import Map from '../components/Map';
 
 import emailjs from 'emailjs-com';
 
-import {Container,Button} from 'reactstrap';
+import { Container, Button } from 'reactstrap';
 
 
 import Navbar2 from '../components/NavBar2';
 import Footer from '../components/Footer';
 
 emailjs.init('-LB88smF2B-HlXe-j');
+
+
 
 function Contact() {
 
@@ -29,45 +31,48 @@ function Contact() {
    const choices = [
       {
          day: "Lundi",
-         id : "monday"
+         id: "monday"
       },
       {
          day: "Mardi",
-         id : "tuesday"
+         id: "tuesday"
       },
       {
          day: "Mercredi",
-         id : "wednesday"
+         id: "wednesday"
       },
       {
          day: "Jeudi",
-         id : "thursday"
+         id: "thursday"
       },
       {
          day: "Vendredi",
-         id : "friday"
+         id: "friday"
       }
    ]
 
+   const form = useRef();
+   const [isEmailSent, setIsEmailSent] = useState(null);
+
    function sendEmail(e) {
       e.preventDefault();
-   
+
       emailjs.sendForm('service_psq5zsf', 'template_2n7utzi', e.target, '-LB88smF2B-HlXe-j')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
+         .then(() => {
+            setIsEmailSent(true);
+         }, () => {
+            setIsEmailSent(false);
+         });
    }
 
 
    return (
 
-      <div  style={{ backgroundColor: bodyStyles.backgroundColor }}>
+      <div style={{ backgroundColor: bodyStyles.backgroundColor }}>
          <Container className='mw-100 p-0' >
-      <Navbar2 />
-      </Container>
-         <Form className="flex-wrap col-6" onSubmit={sendEmail}>
+            <Navbar2 />
+         </Container>
+         <Form ref={form} className="flex-wrap col-6" onSubmit={sendEmail}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                <Form.Label>Nom</Form.Label>
                <Form.Control type="last_name" placeholder="Nom" />
@@ -78,11 +83,11 @@ function Contact() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                <Form.Label>Email</Form.Label>
-               <Form.Control type="email" placeholder="nom@exemple.com"  />
+               <Form.Control type="email" placeholder="nom@exemple.com" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                <Form.Label>Téléphone</Form.Label>
-               <Form.Control type="phone" placeholder="Téléphone"  />
+               <Form.Control type="phone" placeholder="Téléphone" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                <Form.Label>Ville</Form.Label>
@@ -90,15 +95,15 @@ function Contact() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                <Form.Label>Date de naissance/Date du terme</Form.Label>
-               <Form.Control type="date" placeholder="Date de naissance ou Date du terme"  />
+               <Form.Control type="date" placeholder="Date de naissance ou Date du terme" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                <Form.Label>Date de début d'accueil</Form.Label>
-               <Form.Control type="date" placeholder="Date de début d'accueil"  />
+               <Form.Control type="date" placeholder="Date de début d'accueil" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                <Form.Label>Message</Form.Label>
-               <Form.Control as="textarea" placeholder="Message" rows={3}  />
+               <Form.Control as="textarea" placeholder="Message" rows={3} />
             </Form.Group>
             <Form.Select className="mb-3" aria-label="Default select example">
                <option>Comment vous nous avez connu ?</option>
@@ -116,10 +121,13 @@ function Contact() {
                      <input type='time' />
                   </div>
                ))}
-               
+
             </div>
-            <Button style={{buttonStyles}} type="submit">Envoyer</Button>
+            <Button style={{ buttonStyles }} type="submit">Envoyer</Button>
          </Form>
+         {isEmailSent === true && <p>Votre message a bien été envoyé.</p>}
+         {isEmailSent === false && <p>Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.</p>}
+
          <div>
             {/* <Map/> */}
          </div>

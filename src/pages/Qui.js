@@ -23,7 +23,12 @@ function Qui() {
          <div>
          
             <div>
-               TEXTE + PHOTO
+               <div className="col-8 ms-4">
+                  <p>Nous sommes 4 assistantes mat</p>
+                  <div className='col-4'>
+                     <img src="/public/picto-eveil-sens.jpg"></img>
+                  </div>
+               </div>
             </div>
             {/* { isLogged ?  <div className="media"></div> : 'pas connecté'
             

@@ -2,8 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import {  } from '@fortawesome/free-solid-svg-icons'
+
 
 import './App.css';
 import Home from './pages/Home';
@@ -13,7 +12,11 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Pedagogie from './pages/Pedagogie';
 import Error from './_utils/Error';
-import LoginTest from './pages/LoginTest';
+
+
+
+
+
 
 function App() {
 
@@ -31,7 +34,6 @@ function App() {
           <Route path="/modalites" element={<Modalites/>}  />
           <Route path="/contact" element={<Contact/>}  />
           <Route path="/login" element={<Login/>}  />
-          <Route path="/logintest" element={<LoginTest/>}  />
           <Route path="*" element={<Error/>}/>
         </Routes>
       </Router> 
