@@ -7,6 +7,8 @@ import Navbar2 from '../components/NavBar2';
 import Footer from '../components/Footer';
 
 
+
+
 function Pedagogie() {
 
   const categories = [

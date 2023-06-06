@@ -5,6 +5,8 @@ import {Container} from 'reactstrap';
 import Navbar2 from '../components/NavBar2';
 import Footer from '../components/Footer';
 
+
+
 function Qui() {
 
    //const {isLogged} = useContext(user)
