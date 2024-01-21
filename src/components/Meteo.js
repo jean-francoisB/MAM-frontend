@@ -8,7 +8,7 @@ class Weather extends Component {
 
     componentDidMount() {
         const cityName = 'Saint-Pierre-du-Perray'; 
-        const apiKey = 'XXX'; 
+        const apiKey = process.env.REACT_APP_API_KEY; 
 
         axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&lang=fr&units=metric`)
             .then(response => {
