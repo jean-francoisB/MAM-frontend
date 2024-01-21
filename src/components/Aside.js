@@ -103,11 +103,6 @@ function Aside() {
 
           </Card.Body>
         </Card>
-        {/* <Nav className='w-100 d-md-w30'>Liens utiles</Nav>
-        <Nav.Link href="https://www.pajemploi.urssaf.fr/" eventKey="pajemploiLink">Pajemploi</Nav.Link>
-        <Nav.Link href="https://www.caf.fr/" eventKey="cafLink">Caf</Nav.Link>
-        <Nav.Link href="https://monenfant.fr/" eventKey="monenfant">Monenfant.fr</Nav.Link> */}
-
         <Card style={{ width: '18rem' }}>
           <Card.Body>
             <Card.Title>Météo du jour</Card.Title>
@@ -133,7 +128,7 @@ function Aside() {
         {texteData.filter((item) => item.isActive).map((item) => (
           <div key={item.id}>
             {/* <div dangerouslySetInnerHTML={{__html: item.texte}} /> */}
-            <div className='p-15 m-4 col-10' style={{textAlign:'justify'}} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.texte) }} />
+            <div className='p-15 m-4 col-10' style={{ textAlign: 'justify' }} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.texte) }} />
 
             <div className='m-4'>
               {item.signature}

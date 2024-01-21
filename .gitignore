@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# api meteo
+
+const apiKey = 'b0bd7afafb37ea1b2c4c9da8a9cd1fe1';

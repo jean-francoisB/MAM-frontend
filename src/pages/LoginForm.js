@@ -15,14 +15,11 @@ function LoginForm({ onLogin }) {
     });
     const navigate = useNavigate();
     const { setPrenom } = useContext(UserContext);
-    // const [error, setError] = useState("");
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
-
-
     const [error, setError] = useState("");
 
     const handleSubmit = async (event) => {
@@ -37,7 +34,6 @@ function LoginForm({ onLogin }) {
             setError("Email ou mot de passe incorrect.");
         }
     };
-
     const getAuthToken = async (email, password) => {
         const response = await fetch("https://127.0.0.1:8000/api/login_check", {
             method: "POST",
